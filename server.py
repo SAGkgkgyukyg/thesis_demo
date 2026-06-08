@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory, send_file, request, session, redirect, make_response
 import os
 import configparser
-import log_dir
+# import log_dir
 import cv2
 from flask_cors import CORS, cross_origin
 import numpy as np

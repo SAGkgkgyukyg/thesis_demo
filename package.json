@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --config webpack.config.dev.js",
-    "pro": "webpack --mode production --config webpack.config.prod.js"
+    "pro": "webpack --mode production --config webpack.config.prod.js",
+    "build:docs": "npm run pro && node scripts/prepare_docs.js"
   },
   "author": "",
   "license": "ISC",

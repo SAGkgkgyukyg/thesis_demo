@@ -1,20 +1,20 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>專案 Demo - 簡易入口</title>
-  <style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial;max-width:900px;margin:40px auto;padding:0 16px;color:#111;background:#f7f7f7}a{color:#0b66ff}</style>
+  <meta charset="utf-8" />
+  <title>監考系統 主畫面</title>
+  <link rel="icon" href="/favicon/favicon_fire.ico" />
+
 </head>
+
 <body>
-  <h1>專案 Demo</h1>
-  <p>歡迎使用本專案的 Demo 頁面。你可以：</p>
-  <ul>
-    <li><a href="./app/">開啟完整應用 (App)</a> — 包含從 `src/` 建置出的前端應用（用於分享螢幕並進行影像辨識）。</li>
-    <li><a href="./static/">檢視靜態資源</a>（包含編譯後的 JavaScript 與 wasm）。</li>
-    <li><a href="./models/">檢視已加入的模型檔案</a>（TFJS 與 ONNX 模型）。</li>
-  </ul>
-  <p>說明：若要直接在瀏覽器分享螢幕並做辨識，請點選 <strong>開啟完整應用 (App)</strong>（頁面會要求授權分享畫面或攝影機）。</p>
-  <p style="margin-top:24px"><em>注意：首次載入大型 wasm 與模型檔可能較慢，請耐心等候。</em></p>
+  <div id="root"></div>
+
 </body>
+
+<script src="static/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
+
 </html>

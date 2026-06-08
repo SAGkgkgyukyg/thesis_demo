@@ -21,14 +21,14 @@ import ListSubheader from '@mui/material/ListSubheader';
 import ScreenShareRoundedIcon from '@mui/icons-material/ScreenShareRounded';
 import SettingsIcon from '@mui/icons-material/Settings';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import ManagerShow from "./components/manager/managershow.jsx"
-import ManagerExaminee from "./components/manager/examinee_table.jsx"
+// import ManagerShow from "./components/manager/managershow.jsx"
+// import ManagerExaminee from "./components/manager/examinee_table.jsx"
 // import { useCookies, Cookies } from 'react-cookie';
 
 
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
-import Detect from "./components/examinee/detect.jsx"
-import DetectShow from "./components/examinee/detectshow.jsx"
+// import Detect from "./components/examinee/detect.jsx"
+// import DetectShow from "./components/examinee/detectshow.jsx"
 import Demo from "./components/examinee/demo.jsx"
 
 function getCookie(name) {
@@ -109,6 +109,8 @@ function ResponsiveDrawer(props) {
                             </ListItem>
                         </Link>
                     ))} */}
+                    {/* 只保留 Demo 連結，其它考生頁面已註解 */}
+                    {/*
                     <Link to={"/examinee/show"} style={{ textDecoration: 'none', color: 'black' }}>
                         <ListItem disablePadding>
                             <ListItemButton onClick={() => { setTitle({ "main": "考生功能", "sub": "開始考試" }) }}>
@@ -119,6 +121,7 @@ function ResponsiveDrawer(props) {
                             </ListItemButton>
                         </ListItem>
                     </Link>
+                    */}
                     <Link to={"/examinee/demo"} style={{ textDecoration: 'none', color: 'black' }}>
                         <ListItem disablePadding>
                             <ListItemButton onClick={() => { setTitle({ "main": "考生功能", "sub": "Demo" }) }}>
@@ -132,6 +135,7 @@ function ResponsiveDrawer(props) {
                 </List>
                 <Divider />
 
+                {/* 管理功能已註解（保留 Demo 為唯一頁面）
                 <List
                     subheader={
                         <ListSubheader component="div" id="nested-list-subheader">
@@ -171,6 +175,7 @@ function ResponsiveDrawer(props) {
 
 
                 </List>
+                */}
                 <Divider />
                 {/* <Link to={"/talk"} style={{ textDecoration: 'none', color: 'black' }}>
                     <ListItem disablePadding>
@@ -284,21 +289,26 @@ function ResponsiveDrawer(props) {
                             }
                         >
                         </Route>
+                        {/* 註解非 Demo 路由，僅保留 Demo */}
+                        {/*
                         <Route
                             path={"/examinee/show"}
                             element={<DetectShow />} />
                         <Route
                             path={"/examinee/detect"}
                             element={<Detect />} />
+                        */}
                         <Route
                             path={"/examinee/demo"}
                             element={<Demo />} />
+                        {/*
                         <Route
                             path={"/manager/show"}
                             element={<ManagerShow />} />
                         <Route
                             path={"/manager/examinee_edit"}
                             element={<ManagerExaminee />} />
+                        */}
 
                         {/* <Route
                             path={"/talk"}

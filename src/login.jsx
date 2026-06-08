@@ -105,6 +105,7 @@ function SignIn() {
   );
 }
 
-const container = document.getElementById("root");
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<SignIn />);
+// 已註解：停用此頁面直接渲染
+// const container = document.getElementById("root");
+// const root = createRoot(container); // createRoot(container!) if you use TypeScript
+// root.render(<SignIn />);
