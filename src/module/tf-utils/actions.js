@@ -13,7 +13,12 @@ export async function loadTfModels() {
     `./models/${modelName}/model.json`,
     `/models/${modelName}/model.json`,
     `models/${modelName}/model.json`,
-    `../models/${modelName}/model.json`
+    `../models/${modelName}/model.json`,
+    // Some builds place TFJS artifacts under models/tfjs/<modelName>/model.json
+    `./models/tfjs/${modelName}/model.json`,
+    `/models/tfjs/${modelName}/model.json`,
+    `models/tfjs/${modelName}/model.json`,
+    `../models/tfjs/${modelName}/model.json`
   ];
 
   let yolov8 = null;
