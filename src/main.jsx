@@ -63,6 +63,7 @@ function ResponsiveDrawer(props) {
         "main": "考生功能",
         "sub": "開始考試"
     });
+    const [inlineDemo, setInlineDemo] = React.useState(false);
 
 
 
@@ -122,16 +123,14 @@ function ResponsiveDrawer(props) {
                         </ListItem>
                     </Link>
                     */}
-                    <Link to={"/examinee/demo"} style={{ textDecoration: 'none', color: 'black' }}>
-                        <ListItem disablePadding>
-                            <ListItemButton onClick={() => { setTitle({ "main": "考生功能", "sub": "Demo" }) }}>
-                                <ListItemIcon>
-                                    <ScreenShareRoundedIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={"Demo"} />
-                            </ListItemButton>
-                        </ListItem>
-                    </Link>
+                    <ListItem disablePadding>
+                        <ListItemButton component="button" onClick={(e) => { e.preventDefault(); setTitle({ "main": "考生功能", "sub": "Demo" }); setInlineDemo(true); }}>
+                            <ListItemIcon>
+                                <ScreenShareRoundedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Demo"} />
+                        </ListItemButton>
+                    </ListItem>
                 </List>
                 <Divider />
 
@@ -280,50 +279,22 @@ function ResponsiveDrawer(props) {
                     {/* <div style={{ display: login ? '' : 'none' }}>
                         aaa
                     </div> */}
-                    <Routes>
-                        <Route path={"/"}
-                            element={
-                                <div>
-                                    <h1>請點選左側功能列</h1>
-                                </div>
-                            }
-                        >
-                        </Route>
-                        {/* 註解非 Demo 路由，僅保留 Demo */}
-                        {/*
-                        <Route
-                            path={"/examinee/show"}
-                            element={<DetectShow />} />
-                        <Route
-                            path={"/examinee/detect"}
-                            element={<Detect />} />
-                        */}
-                        <Route
-                            path={"/examinee/demo"}
-                            element={<Demo />} />
-                        {/*
-                        <Route
-                            path={"/manager/show"}
-                            element={<ManagerShow />} />
-                        <Route
-                            path={"/manager/examinee_edit"}
-                            element={<ManagerExaminee />} />
-                        */}
-
-                        {/* <Route
-                            path={"/talk"}
-                            element={
-                                <div>
-                                    <Typography paragraph>
-                                        基於螢幕影像內容辨識之技術進行使用者電腦操作行為監控：以程式設計考試場域為例
-                                    </Typography>
-                                    <Typography paragraph>
-                                        本系統透過Tensorflow.js於前端對於使用者分享的WebRTC影像串流進行物件檢測
-                                        透過設定白名單進行舞弊樣態定義將異常影像進行截圖
-                                    </Typography>
-                                </div>
-                            } /> */}
-                    </Routes>
+                    {inlineDemo ? (
+                        <div>
+                            <Demo />
+                        </div>
+                    ) : (
+                        <Routes>
+                            <Route path={"/"}
+                                element={
+                                    <div>
+                                        <h1>請點選左側功能列</h1>
+                                    </div>
+                                }
+                            >
+                            </Route>
+                        </Routes>
+                    )}
 
                 </Box>
             </Box>
