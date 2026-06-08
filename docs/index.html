@@ -3,61 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>專案 Demo</title>
-  <style>
-    body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;max-width:900px;margin:40px auto;padding:0 16px;color:#111;background:#f7f7f7}
-    header{display:flex;align-items:center;gap:16px}
-    .card{border:1px solid #eee;padding:20px;border-radius:8px;background:#fff}
-    .note{color:#666;font-size:0.95rem}
-    a{color:#0b66ff}
-  </style>
+  <title>專案 Demo - 簡易入口</title>
+  <style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial;max-width:900px;margin:40px auto;padding:0 16px;color:#111;background:#f7f7f7}a{color:#0b66ff}</style>
 </head>
 <body>
-  <header>
-    <h1>專案 Demo 頁面</h1>
-  </header>
-  <main class="card">
-    <p>這是一個靜態 Demo 頁面，示範如何在瀏覽器端載入 `TFJS` 與 `ONNX` 模型並對 webcam 影像進行即時推論（簡化示範）。</p>
-    <p>使用流程：先在本機把模型複製到 <code>docs/models/</code>（請看下方指令），然後把變更推到 GitHub，Pages 會部署 <code>/docs</code>。</p>
-
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px">
-      <button id="startBtn">啟動相機</button>
-      <button id="stopBtn" disabled>停止相機</button>
-      <select id="modelSelect">
-        <option value="tfjs">TFJS: models/tfjs/yolov8s_iid/model.json</option>
-        <option value="onnx">ONNX: models/yolo_best.onnx</option>
-      </select>
-      <button id="loadBtn">載入模型</button>
-      <span id="status" class="note">尚未載入模型</span>
-    </div>
-
-    <div style="display:flex;gap:16px;align-items:flex-start">
-      <div>
-        <video id="video" width="640" height="480" autoplay muted playsinline style="background:#000;border-radius:6px"></video>
-        <canvas id="overlay" width="640" height="480" style="position:relative;margin-top:8px;border-radius:6px"></canvas>
-      </div>
-      <div style="min-width:260px">
-        <div class="card" style="padding:12px">
-          <strong>推論資訊</strong>
-          <p id="info" class="note">–</p>
-        </div>
-        <div class="card" style="padding:12px;margin-top:8px">
-          <strong>本機複製指令</strong>
-          <pre style="white-space:pre-wrap;margin:6px 0">mkdir -p docs/models/tfjs
-cp -r models/tfjs/yolov8s_iid docs/models/tfjs/
-cp models/*.onnx docs/models/onnx/  # optional: 複製 ONNX 模型
-git add docs/models
-git commit -m "Add models for GitHub Pages demo"
-git push origin main</pre>
-        </div>
-      </div>
-    </div>
-
-    <p style="margin-top:12px"><a href="/">返回專案首頁（若有啟動伺服器）</a></p>
-    <p class="note" style="margin-top:8px">檔案位置：docs/index.html</p>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.12.0/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
-  <script src="/app.js"></script>
+  <h1>專案 Demo</h1>
+  <p>歡迎使用本專案的 Demo 頁面。你可以：</p>
+  <ul>
+    <li><a href="./app/">開啟完整應用 (App)</a> — 包含從 `src/` 建置出的前端應用（用於分享螢幕並進行影像辨識）。</li>
+    <li><a href="./static/">檢視靜態資源</a>（包含編譯後的 JavaScript 與 wasm）。</li>
+    <li><a href="./models/">檢視已加入的模型檔案</a>（TFJS 與 ONNX 模型）。</li>
+  </ul>
+  <p>說明：若要直接在瀏覽器分享螢幕並做辨識，請點選 <strong>開啟完整應用 (App)</strong>（頁面會要求授權分享畫面或攝影機）。</p>
+  <p style="margin-top:24px"><em>注意：首次載入大型 wasm 與模型檔可能較慢，請耐心等候。</em></p>
 </body>
 </html>
